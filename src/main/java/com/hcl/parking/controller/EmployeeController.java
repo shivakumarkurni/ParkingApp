@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.hcl.parking.dto.EmployeeDTO;
+import com.hcl.parking.service.CommoResponseDto;
 import com.hcl.parking.service.EmployeeService;
 
 @RestController
@@ -18,9 +19,9 @@ public class EmployeeController {
 	EmployeeService employeeService;
 
 	@PostMapping("/employee/create")
-	public ResponseEntity<String> employeeRegistration(@RequestBody EmployeeDTO employeeDto) {
+	public ResponseEntity<CommoResponseDto> employeeRegistration(@RequestBody EmployeeDTO employeeDto) {
 
-		return new ResponseEntity<String>(employeeService.employeeRegistration(employeeDto), HttpStatus.CREATED);
+		return new ResponseEntity<>(employeeService.employeeRegistration(employeeDto), HttpStatus.CREATED);
 	}
 
 }

@@ -1,5 +1,7 @@
 package com.hcl.parking.service;
 
+import java.util.Optional;
+
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,7 +27,9 @@ public class SpotOwnerReleaseService {
 
 		BeanUtils.copyProperties(spotOwnerReleaseDto, spotOwnerRelease);
 		
-		ParkingSlots parkingSlots = parkingSlotsRepository.getParkingSlotsByEmployee(spotOwnerRelease.getUserId());
+		int psId=spotOwnerReleaseDto.getParkingSlots().getPsId();
+		
+		ParkingSlots parkingSlots = parkingSlotsRepository.findById(psId).get();
 		
 		spotOwnerRelease.setParkingSlots(parkingSlots);
 

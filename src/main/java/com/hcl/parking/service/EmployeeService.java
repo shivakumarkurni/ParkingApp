@@ -14,20 +14,15 @@ public class EmployeeService {
 	@Autowired
 	EmployeeRepository employeeRepository;
 
-	public String employeeRegistration(EmployeeDTO employeeDto) {
+	public CommoResponseDto employeeRegistration(EmployeeDTO employeeDto) {
 
 		Employee employee = new Employee();
 
 		BeanUtils.copyProperties(employeeDto, employee);
 
-		Employee emp = employeeRepository.save(employee);
+		employeeRepository.save(employee);
 
-		if (emp != null)
-
-			return "Employee registered successfully";
-
-		else
-			return "Employee not registered";
+		return new CommoResponseDto("Registration success");
 
 	}
 
