@@ -30,7 +30,7 @@ public class ParkingSlotsService {
 
 		List<Employee> employees = employeeRepository.findAll();
 		ParkingSlots parkingSlots = null;
-		String res=null;
+		String res = null;
 
 		for (Employee employee : employees) {
 
@@ -40,24 +40,21 @@ public class ParkingSlotsService {
 					|| (year - employee.getJoinedYear() >= 15)) {
 
 				parkingSlots.setEmployee(employee);
-			parkingSlots.setFloor(parkingSlotsDTO.getFloor());
-			parkingSlots.setStatus(parkingSlotsDTO.getStatus());
+				parkingSlots.setFloor(parkingSlotsDTO.getFloor());
+				parkingSlots.setStatus(parkingSlotsDTO.getStatus());
 
-			parkingSlotsRepository.save(parkingSlots);
-			res= "parking slot created";
+				parkingSlotsRepository.save(parkingSlots);
+				res = "parking slot created";
 			}
-			
+
 			else {
-				res= "Slot not created";
+				res = "Slot not created";
 			}
-			
-			
 
 		}
-		
+
 		return res;
 
-		
 	}
 
 }

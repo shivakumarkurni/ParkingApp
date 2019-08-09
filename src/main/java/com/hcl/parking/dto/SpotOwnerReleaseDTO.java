@@ -1,6 +1,7 @@
 package com.hcl.parking.dto;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import com.hcl.parking.entity.ParkingSlots;
 
@@ -12,6 +13,7 @@ public class SpotOwnerReleaseDTO implements Serializable {
 	private int userId;
 
 	ParkingSlots parkingSlots;
+	private Date availableTillDate;
 
 	public int getSoReleaseId() {
 		return soReleaseId;
@@ -43,6 +45,14 @@ public class SpotOwnerReleaseDTO implements Serializable {
 
 	public void setParkingSlots(ParkingSlots parkingSlots) {
 		this.parkingSlots = parkingSlots;
+	}
+	
+	public Date getAvailableTillDate() {
+		return availableTillDate;
+	}
+
+	public void setAvailableTillDate(Date availableTillDate) {
+		this.availableTillDate = availableTillDate;
 	}
 
 	@Override

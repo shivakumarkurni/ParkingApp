@@ -1,5 +1,8 @@
 package com.hcl.parking.entity;
 
+import java.time.LocalDate;
+import java.util.Date;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -18,6 +21,7 @@ public class SpotOwnerRelease {
 	private int soReleaseId;
 	private int days;
 	private int userId;
+	private LocalDate availableTillDate;
 
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "psId")
@@ -53,6 +57,14 @@ public class SpotOwnerRelease {
 
 	public void setParkingSlots(ParkingSlots parkingSlots) {
 		this.parkingSlots = parkingSlots;
+	}
+
+	public LocalDate getAvailableTillDate() {
+		return availableTillDate;
+	}
+
+	public void setAvailableTillDate(LocalDate addDate) {
+		this.availableTillDate = addDate;
 	}
 
 	@Override
